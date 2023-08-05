@@ -63,11 +63,11 @@ public class PlayerController : MonoBehaviour
 
         if (inputDirection.x >= 0.15f)
         {
-            targetRot = Vector3.up * 180;
+            targetRot.y = 180;
         }
         else if (inputDirection.x <= -0.15f)
         {
-            targetRot = Vector3.zero;
+            targetRot.y = 0;
         }
         else if (inputDirection.x == 0)
         {
