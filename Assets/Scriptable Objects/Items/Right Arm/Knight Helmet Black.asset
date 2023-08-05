@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Knight Helmet Black
   m_EditorClassIdentifier: 
   useSameNameAsSprite: 0
-  itemSprite: {fileID: 21300044, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
-  itemType: 2
+  itemSprite: {fileID: 21300298, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  itemType: 1
   itemCost: 100
