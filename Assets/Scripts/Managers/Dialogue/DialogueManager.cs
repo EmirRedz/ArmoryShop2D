@@ -100,10 +100,8 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        if (currentNPC != null)
-        {
-            currentNPC.OnDialogueEnded?.Invoke();
-        }
+        currentNPC.OnDialogueEnded?.Invoke();
+
         dialogueAnimator.SetBool(IsOpen, false);
         isDialogueWindowUp = false;
     }

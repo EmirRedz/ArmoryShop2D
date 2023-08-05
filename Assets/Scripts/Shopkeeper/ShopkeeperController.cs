@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ShopkeeperController : MonoBehaviour
 {
+    [SerializeField] private string shopName;
+    [SerializeField] private List<ItemSO> items;
+    
     private DialogueTrigger dialogueTrigger;
 
     private void Awake()
@@ -18,5 +21,10 @@ public class ShopkeeperController : MonoBehaviour
         {
             dialogueTrigger.TriggerDialogue();
         }
+    }
+
+    public void ToggleShop()
+    {
+        ShopManager.Instance.SetUpShop(shopName, items);
     }
 }
