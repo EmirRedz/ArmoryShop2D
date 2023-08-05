@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95a7540c5f10b76428d0599783501f76, type: 3}
-  m_Name: Knight Right Arm Green
+  m_Name: Knight Helmet Red
   m_EditorClassIdentifier: 
   useSameNameAsSprite: 0
-  itemSprite: {fileID: 21300066, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  itemSprite: {fileID: 21300286, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   itemType: 2
   itemCost: 100
