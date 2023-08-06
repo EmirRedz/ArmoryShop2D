@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Create New Item")]
 public class ItemSO : ScriptableObject
 {
+    [Header("Helper variables")]
     [SerializeField] private bool useSameNameAsSprite;
     [SerializeField] private bool randomizePrice;
     [SerializeField] private bool setSellingPriceByFactorOfBuyingPrice;
