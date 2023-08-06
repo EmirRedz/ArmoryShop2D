@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ShopkeeperController : MonoBehaviour
 {
@@ -15,6 +18,19 @@ public class ShopkeeperController : MonoBehaviour
         dialogueTrigger = GetComponent<DialogueTrigger>();
     }
 
+    private void Start()
+    {
+        for (int i = items.Count - 1; i >= 0; i--)
+        {
+            var item = items[i];
+            if (item.IsBought())
+            {
+                GameManager.Instance.inventory.AddItemToInventory(item);
+                items.Remove(item);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
@@ -26,5 +42,22 @@ public class ShopkeeperController : MonoBehaviour
     public void ToggleShop()
     {
         ShopManager.Instance.SetUpShop(shopName, items);
+    }
+    
+    [Button]
+    private void RandomizeItemList()
+    {
+        Shuffle(items);
+    }
+    
+    private void Shuffle<T>(List<T> _list)
+    {
+        for (int i = 0; i < _list.Count; i++)
+        {
+            T temp = _list[i];
+            int randomIndex = Random.Range(i, _list.Count);
+            _list[i] = _list[randomIndex];
+            _list[randomIndex] = temp;
+        }
     }
 }

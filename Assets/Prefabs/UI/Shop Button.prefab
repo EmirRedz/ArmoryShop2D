@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 2514011849575167466}
   itemCostText: {fileID: 7075941891428508543}
+  itemButton: {fileID: 2514011849284119947}
 --- !u!1 &2514011849575167476
 GameObject:
   m_ObjectHideFlags: 0

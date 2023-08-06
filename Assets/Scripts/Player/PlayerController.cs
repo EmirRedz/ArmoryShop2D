@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed;
     private Vector2 inputDirection;
     private Rigidbody2D rb;
-
+    
     [Header("Animations")] 
     [SerializeField] private Animator playerAnimator;
 
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement = input.Player.Move;
         playerMovement.Enable();
+        
     }
 
     private void OnDisable()
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour
     {
         SetInput();
         SetRotation();
+
+        if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            GameManager.Instance.ToggleInventoryWindow();
+        }
     }
 
     

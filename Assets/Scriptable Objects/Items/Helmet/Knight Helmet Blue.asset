@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a7540c5f10b76428d0599783501f76, type: 3}
   m_Name: Knight Helmet Blue
   m_EditorClassIdentifier: 
+  useSameNameAsSprite: 1
+  randomizePrice: 1
+  randomPriceRange: {x: 11, y: 70}
+  itemName: helmet-blue
   itemSprite: {fileID: 21300288, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   itemType: 1
-  itemCost: 100
+  itemCost: 30
