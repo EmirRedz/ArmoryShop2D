@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Header("Inventory")] 
     [SerializeField] private GameObject inventoryWindow;
     private bool isInventoryWindowShown;
+
+    [Header("Music")]
+    [SerializeField] private AudioSource musicSource;
     private void Awake()
     {
         Instance = this;
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CursorManager.Instance.ToggleCursor(false);
+        MusicController.Instance.PlayMusic(musicSource,1.5f, true);
     }
 
     public void ToggleInventoryWindow()
