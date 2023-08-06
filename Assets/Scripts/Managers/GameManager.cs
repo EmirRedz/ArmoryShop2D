@@ -15,6 +15,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
+    private void Start()
+    {
+        CursorManager.Instance.ToggleCursor(false);
     }
 
     public void ToggleInventoryWindow()

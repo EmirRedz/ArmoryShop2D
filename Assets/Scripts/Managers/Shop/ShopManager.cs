@@ -32,7 +32,8 @@ public class ShopManager : MonoBehaviour
 
             SpawnButton(items[index]);
         }
-        
+
+        CursorManager.Instance.ToggleCursor(true);
         CheckIfCanBuy();
     }
 
@@ -45,6 +46,8 @@ public class ShopManager : MonoBehaviour
         }
         currentShopItems.Clear();
         shopHolder.SetActive(false);
+        CursorManager.Instance.ToggleCursor(false);
+
     }
 
 
