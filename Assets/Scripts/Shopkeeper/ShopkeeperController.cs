@@ -16,10 +16,7 @@ public class ShopkeeperController : MonoBehaviour
     private void Awake()
     {
         dialogueTrigger = GetComponent<DialogueTrigger>();
-    }
-
-    private void Start()
-    {
+        
         for (int i = items.Count - 1; i >= 0; i--)
         {
             var item = items[i];
@@ -30,6 +27,7 @@ public class ShopkeeperController : MonoBehaviour
             }
         }
     }
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {

@@ -34,16 +34,27 @@ public class ItemSO : ScriptableObject
             itemCost = Random.Range(randomPriceRange.x, randomPriceRange.y);
         }
     }
-
-    [SerializeField] private bool isBought;
-    private void Awake()
-    {
-        isBought = IsBought();
-    }
-
+    
     public bool IsBought()
     {
         return PlayerPrefs.GetInt(itemName, 0) == 1;
+    }
+
+    public bool IsEquipped()
+    {
+        return PlayerPrefs.GetInt(itemName + "Equipped") == 1;
+    }
+
+    public void EquipItem()
+    {
+        PlayerPrefs.SetInt(itemName + "Equipped", 1);
+        PlayerPrefs.Save();
+    }
+
+    public void UnequipItem()
+    {
+        PlayerPrefs.SetInt(itemName + "Equipped", 0);
+        PlayerPrefs.Save(); 
     }
 
     public void BuyItem()

@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopNameText: {fileID: 1160296333}
-  itemButtonPrefab: {fileID: 0}
+  itemButtonPrefab: {fileID: -3209264903026439792, guid: c3414029889e31543894844456639102, type: 3}
   buttonHolder: {fileID: 272267083}
 --- !u!4 &656208463
 Transform:
