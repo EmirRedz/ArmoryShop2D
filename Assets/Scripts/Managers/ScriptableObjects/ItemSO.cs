@@ -55,10 +55,6 @@ public class ItemSO : ScriptableObject
     public enum ItemType
     {
         Body,
-        Head,
-        RightArm,
-        LeftArm,
-        RightLeg,
-        LeftLeg
+        Head
     }
 }

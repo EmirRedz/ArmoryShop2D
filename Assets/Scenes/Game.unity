@@ -3027,10 +3027,6 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1283260305}
-    - target: {fileID: 2999662070449986901, guid: 2bd77e396b72b32458e6bb6a1b66b770, type: 3}
-      propertyPath: itemButtonPrefab
-      value: 
-      objectReference: {fileID: 9029986174574384561, guid: 86d92972f167b5c4289ba5398ffcb144, type: 3}
     - target: {fileID: 6279313413959636148, guid: 2bd77e396b72b32458e6bb6a1b66b770, type: 3}
       propertyPath: m_Name
       value: Player

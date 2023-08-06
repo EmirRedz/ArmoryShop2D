@@ -94,6 +94,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItems: []
+  itemButtonPrefab: {fileID: 9029986174574384561, guid: 86d92972f167b5c4289ba5398ffcb144, type: 3}
+  inventory: {fileID: 0}
+  bodyRenderer: {fileID: 6185050483210982372}
+  helmetRenderer: {fileID: 6185050483360019834}
 --- !u!50 &6279313413959636150
 Rigidbody2D:
   serializedVersion: 4
