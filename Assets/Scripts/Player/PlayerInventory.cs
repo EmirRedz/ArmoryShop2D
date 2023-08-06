@@ -141,12 +141,33 @@ public class PlayerInventory : MonoBehaviour
         }
 
         myItems.Remove(itemToRemove);
+        if (!HasSpecificTypeOfArmor(ItemSO.ItemType.Head))
+        {
+            helmetRenderer.sprite = defaultHelmet;
+        }
+
+        if (!HasSpecificTypeOfArmor(ItemSO.ItemType.Body))
+        {
+            bodyRenderer.sprite = defaultBody;
+        }
+        
         if (myItems.Count <= 0)
         {
             bodyRenderer.sprite = defaultBody;
             helmetRenderer.sprite = defaultHelmet;
-            
         }
     }
-    
+
+    private bool HasSpecificTypeOfArmor(ItemSO.ItemType itemType)
+    {
+        for (int i = 0; i < myItems.Count; i++)
+        {
+            if (myItems[i].itemType == itemType)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
