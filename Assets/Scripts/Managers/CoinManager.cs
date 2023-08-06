@@ -19,7 +19,7 @@ public class CoinManager : MonoBehaviour
 
     private void Start()
     {
-        coinAmount = PlayerPrefs.GetInt(COIN_AMOUNT_KEY, 9999);
+        coinAmount = PlayerPrefs.GetInt(COIN_AMOUNT_KEY, 100);
         coinAmountText.SetText(coinAmount.ToString());
     }
 
@@ -49,5 +49,7 @@ public class CoinManager : MonoBehaviour
         PlayerPrefs.SetInt(COIN_AMOUNT_KEY, coinAmount);
         PlayerPrefs.Save();
         coinAmountText.SetText(coinAmount.ToString());
+        
+        ShopManager.Instance.CheckIfCanBuy();
     }
 }

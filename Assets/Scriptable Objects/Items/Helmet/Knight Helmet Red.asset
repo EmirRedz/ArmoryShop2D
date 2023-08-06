@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSameNameAsSprite: 1
   randomizePrice: 1
+  setSellingPriceByFactorOfBuyingPrice: 1
   randomPriceRange: {x: 11, y: 70}
+  sellingPriceFactor: 0.75
   itemName: helmet-red
   itemSprite: {fileID: 21300286, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   itemType: 1
-  itemCost: 15
+  itemCost: 62
+  sellingCost: 46

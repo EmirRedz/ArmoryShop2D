@@ -23,7 +23,7 @@ public class ShopkeeperController : MonoBehaviour
             if (item.IsBought())
             {
                 GameManager.Instance.inventory.AddItemToInventory(item);
-                items.Remove(item);
+                RemoveItemFromShop(item);
             }
         }
     }
@@ -37,9 +37,18 @@ public class ShopkeeperController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ShopManager.Instance.CloseShopWindow();
+        }
+        
+    }
+
     public void ToggleShop()
     {
-        ShopManager.Instance.SetUpShop(shopName, items);
+        ShopManager.Instance.SetUpShop(shopName, items, this);
     }
     
     [Button]
@@ -57,5 +66,25 @@ public class ShopkeeperController : MonoBehaviour
             _list[i] = _list[randomIndex];
             _list[randomIndex] = temp;
         }
+    }
+
+    public void AddItemsToShop(ItemSO itemToAdd)
+    {
+        if (items.Contains(itemToAdd))
+        {
+            return;
+        }
+        items.Add(itemToAdd);
+        ShopManager.Instance.SpawnButton(itemToAdd);
+    }
+
+    public void RemoveItemFromShop(ItemSO itemToRemove)
+    {
+        if (!items.Contains(itemToRemove))
+        {
+            return;
+        }
+
+        items.Remove(itemToRemove);
     }
 }

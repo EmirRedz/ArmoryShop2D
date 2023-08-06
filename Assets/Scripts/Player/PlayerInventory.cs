@@ -1,16 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Lean.Pool;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    [Header("UI")]
     [SerializeField] private List<ItemSO> myItems;
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform inventory;
-
-    [Space(5)] 
+    private List<ItemButton> inventoryButtons = new List<ItemButton>();
+    
+    [Space(5)]
+    
+    [SerializeField] private ItemButton sellScreenButtonPrefab;
+    [SerializeField] private Transform sellScreenParent;
+    
+    [Space(10)] 
+    
+    [Header("Item Update")]
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer helmetRenderer;
 
@@ -41,11 +51,48 @@ public class PlayerInventory : MonoBehaviour
         }
 
         myItems.Add(itemToAdd);
+        
+        SetInventoryButton(itemToAdd);
+        SetSellingButtons(itemToAdd);
+    }
+
+    private void SetSellingButtons(ItemSO itemToAdd)
+    {
+        var sellingButton = LeanPool.Spawn(sellScreenButtonPrefab, sellScreenParent);
+        sellingButton.GetBtn().interactable = true;
+        sellingButton.transform.localScale = Vector3.one * 0.6f;
+        sellingButton.transform.DOPunchScale(Vector3.one * 0.25f, 0.25f).SetEase(Ease.Linear);
+
+        sellingButton.GetBtn().onClick.RemoveAllListeners();
+        sellingButton.InitShopButton(itemToAdd.itemSprite, itemToAdd.sellingCost);
+
+        sellingButton.GetBtn().onClick.AddListener((() =>
+        {
+            CoinManager.Instance.AddCoin(itemToAdd.sellingCost);
+
+            sellingButton.transform.DOScale(Vector3.zero, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                var inventoryButtonIndex = myItems.IndexOf(itemToAdd);
+                LeanPool.Despawn(inventoryButtons[inventoryButtonIndex]);
+                inventoryButtons.RemoveAt(inventoryButtonIndex);
+
+                RemoveItemFromList(itemToAdd);
+                LeanPool.Despawn(sellingButton);
+
+                ShopManager.Instance.GetShopKeeper().AddItemsToShop(itemToAdd);
+            });
+        }));
+    }
+
+    private void SetInventoryButton(ItemSO itemToAdd)
+    {
         var itemButton = LeanPool.Spawn(itemButtonPrefab, inventory);
+        itemButton.GetBtn().interactable = true;
+        itemButton.transform.DOPunchScale(Vector3.one * 0.25f, 0.25f).SetEase(Ease.Linear);
         itemButton.GetBtn().onClick.RemoveAllListeners();
         itemButton.InitShopButton(itemToAdd.itemSprite, 0);
-        
-        
+        inventoryButtons.Add(itemButton);
+
         switch (itemToAdd.itemType)
         {
             case ItemSO.ItemType.Body:
@@ -59,6 +106,7 @@ public class PlayerInventory : MonoBehaviour
                             myItem.UnequipItem();
                         }
                     }
+
                     itemToAdd.EquipItem();
                 }));
                 break;
@@ -73,12 +121,13 @@ public class PlayerInventory : MonoBehaviour
                             myItem.UnequipItem();
                         }
                     }
+
                     itemToAdd.EquipItem();
                 }));
                 break;
         }
     }
-    
+
     public void RemoveItemFromList(ItemSO itemToRemove)
     {
         if (!myItems.Contains(itemToRemove))

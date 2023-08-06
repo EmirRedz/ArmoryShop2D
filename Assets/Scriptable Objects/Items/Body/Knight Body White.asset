@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSameNameAsSprite: 1
   randomizePrice: 1
+  setSellingPriceByFactorOfBuyingPrice: 1
   randomPriceRange: {x: 13, y: 150}
+  sellingPriceFactor: 0.75
   itemName: knight-body-white
   itemSprite: {fileID: 21300038, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   itemType: 0
-  itemCost: 26
+  itemCost: 134
+  sellingCost: 100
