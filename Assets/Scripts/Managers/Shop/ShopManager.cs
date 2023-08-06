@@ -70,7 +70,7 @@ public class ShopManager : MonoBehaviour
     {
         CoinManager.Instance.RemoveCoin(cost);
         GameManager.Instance.inventory.AddItemToInventory(itemToAdd);
-        itemToAdd.BuyItem();
+        itemToAdd.SetItemBoughtState(1);
     }
 
     public void CheckIfCanBuy()

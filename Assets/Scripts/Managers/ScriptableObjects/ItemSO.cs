@@ -68,11 +68,12 @@ public class ItemSO : ScriptableObject
         PlayerPrefs.Save(); 
     }
 
-    public void BuyItem()
+    public void SetItemBoughtState(int state)
     {
-        PlayerPrefs.SetInt(itemName, 1);
+        PlayerPrefs.SetInt(itemName, state);
         PlayerPrefs.Save();
     }
+    
 
     public enum ItemType
     {

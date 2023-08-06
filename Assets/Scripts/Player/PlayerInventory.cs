@@ -65,6 +65,7 @@ public class PlayerInventory : MonoBehaviour
             sellingButton.transform.DOScale(Vector3.zero, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
             {
                 var inventoryButtonIndex = myItems.IndexOf(itemToAdd);
+                itemToAdd.SetItemBoughtState(0);
                 LeanPool.Despawn(inventoryButtons[inventoryButtonIndex]);
                 inventoryButtons.RemoveAt(inventoryButtonIndex);
 
