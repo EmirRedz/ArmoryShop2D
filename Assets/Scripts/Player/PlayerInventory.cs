@@ -73,6 +73,8 @@ public class PlayerInventory : MonoBehaviour
                 LeanPool.Despawn(sellingButton);
 
                 ShopManager.Instance.GetShopKeeper().AddItemsToShop(itemToAdd);
+                AudioManager.Instance.PlaySound2D("MouseClick");
+
             });
         }));
     }
@@ -101,6 +103,8 @@ public class PlayerInventory : MonoBehaviour
                     }
 
                     itemToAdd.EquipItem();
+                    AudioManager.Instance.PlaySound2D("MouseClick");
+
                 }));
                 break;
             case ItemSO.ItemType.Head:
@@ -116,6 +120,8 @@ public class PlayerInventory : MonoBehaviour
                     }
 
                     itemToAdd.EquipItem();
+                    AudioManager.Instance.PlaySound2D("MouseClick");
+
                 }));
                 break;
         }

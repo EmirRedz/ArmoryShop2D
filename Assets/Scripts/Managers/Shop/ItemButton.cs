@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,7 @@ public class ItemButton : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemCostText;
     [SerializeField] private Button itemButton;
+    
     public void InitShopButton(Sprite itemSprite, int itemCost)
     {
         itemImage.sprite = itemSprite;

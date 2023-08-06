@@ -1217,8 +1217,10 @@ MonoBehaviour:
     NPCName: Lyate The Merchant
     sentences:
     - 'Hello there traveler! '
-    - Lyate has ware if you have coin
-    clipsToPlay: []
+    - Lyate has wares if you have coin
+    clipsToPlay:
+    - {fileID: 8300000, guid: d24747f20494be04bb660bfb11dcdd20, type: 3}
+    - {fileID: 8300000, guid: c83462304729e4c4a9c8d504c03cb9fb, type: 3}
   OnDialogueEnded:
     m_PersistentCalls:
       m_Calls:
@@ -1977,7 +1979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f7c63efe0693e45a93ab9a7d9cad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundGroups: []
+  soundGroups:
+  - groupName: MouseClick
+    groupClips:
+    - {fileID: 8300000, guid: e8af9035f5758f44da37af4225a02619, type: 3}
 --- !u!114 &1192030798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,7 +2823,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1930164145}
   npcName: {fileID: 997537008}
   audioSource: {fileID: 1639410407}
-  timer: 2
+  timer: 3
   currentTime: 0
 --- !u!4 &1639410409
 Transform:
@@ -3545,6 +3550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1707192182}
   inventoryWindow: {fileID: 1126306219}
+  musicSource: {fileID: 1972488240}
 --- !u!4 &1972488239
 Transform:
   m_ObjectHideFlags: 0
@@ -3570,7 +3576,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0dccd2f926fe94ca9bf6ebb93ecfa99a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

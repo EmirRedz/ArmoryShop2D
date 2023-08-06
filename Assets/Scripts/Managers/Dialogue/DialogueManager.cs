@@ -84,13 +84,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        //AudioClip clip = clips.Dequeue();
+        AudioClip clip = clips.Dequeue();
         StopAllCoroutines();
         StartCoroutine(AnimateSentence(sentence));
-        // if (!audioSource.isPlaying)
-        // {
-        //     audioSource.PlayOneShot(clip);
-        // }
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 
     public void SetCurrentDialogueNPC( DialogueTrigger trigger)

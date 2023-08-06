@@ -66,6 +66,8 @@ public class ShopManager : MonoBehaviour
             currentShopItems.Remove(button);
             
             currentShopKeeper.RemoveItemFromShop(item);
+            AudioManager.Instance.PlaySound2D("MouseClick");
+
         }));
     }
     
