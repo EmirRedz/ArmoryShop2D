@@ -815,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff0a862f6c8d4143ab01561a2533150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopHolder: {fileID: 274400395}
   shopNameText: {fileID: 1160296333}
   itemButtonPrefab: {fileID: -3209264903026439792, guid: c3414029889e31543894844456639102, type: 3}
   buttonHolder: {fileID: 272267083}
@@ -3395,10 +3396,6 @@ PrefabInstance:
       propertyPath: sellScreenParent
       value: 
       objectReference: {fileID: 666116168}
-    - target: {fileID: 2999662070449986901, guid: 2bd77e396b72b32458e6bb6a1b66b770, type: 3}
-      propertyPath: sellScreenButtonPrefab
-      value: 
-      objectReference: {fileID: -3209264903026439792, guid: c3414029889e31543894844456639102, type: 3}
     - target: {fileID: 6279313413959636148, guid: 2bd77e396b72b32458e6bb6a1b66b770, type: 3}
       propertyPath: m_Name
       value: Player

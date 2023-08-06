@@ -96,8 +96,12 @@ MonoBehaviour:
   myItems: []
   itemButtonPrefab: {fileID: 9029986174574384561, guid: 86d92972f167b5c4289ba5398ffcb144, type: 3}
   inventory: {fileID: 0}
+  sellScreenButtonPrefab: {fileID: -3209264903026439792, guid: c3414029889e31543894844456639102, type: 3}
+  sellScreenParent: {fileID: 0}
   bodyRenderer: {fileID: 6185050483210982372}
   helmetRenderer: {fileID: 6185050483360019834}
+  defaultBody: {fileID: 21300028, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  defaultHelmet: {fileID: 21300286, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
 --- !u!50 &6279313413959636150
 Rigidbody2D:
   serializedVersion: 4

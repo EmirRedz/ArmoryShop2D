@@ -24,6 +24,9 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer helmetRenderer;
 
+    [SerializeField] private Sprite defaultBody;
+    [SerializeField] private Sprite defaultHelmet;
+
     private void Start()
     {
         for (int i = 0; i < myItems.Count; i++)
@@ -43,18 +46,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void AddItemToInventory(ItemSO itemToAdd)
-    {
-        if (myItems.Contains(itemToAdd))
-        {
-            return;
-        }
 
-        myItems.Add(itemToAdd);
-        
-        SetInventoryButton(itemToAdd);
-        SetSellingButtons(itemToAdd);
-    }
 
     private void SetSellingButtons(ItemSO itemToAdd)
     {
@@ -128,6 +120,19 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void AddItemToInventory(ItemSO itemToAdd)
+    {
+        if (myItems.Contains(itemToAdd))
+        {
+            return;
+        }
+
+        myItems.Add(itemToAdd);
+        
+        SetInventoryButton(itemToAdd);
+        SetSellingButtons(itemToAdd);
+    }
+    
     public void RemoveItemFromList(ItemSO itemToRemove)
     {
         if (!myItems.Contains(itemToRemove))
@@ -136,6 +141,12 @@ public class PlayerInventory : MonoBehaviour
         }
 
         myItems.Remove(itemToRemove);
+        if (myItems.Count <= 0)
+        {
+            bodyRenderer.sprite = defaultBody;
+            helmetRenderer.sprite = defaultHelmet;
+            
+        }
     }
     
 }
