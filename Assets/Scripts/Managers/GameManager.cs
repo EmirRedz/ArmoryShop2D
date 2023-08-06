@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         isInventoryWindowShown = !isInventoryWindowShown;
         inventoryWindow.SetActive(isInventoryWindowShown);
+        CursorManager.Instance.ToggleCursor(isInventoryWindowShown);
     }
     
     
